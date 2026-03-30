@@ -39,8 +39,8 @@
     @media (min-width: 1024px) { .hero { flex-direction: row; padding: 80px 80px; } }
     .hero-text { flex: 1; }
     .hero-tag { display: inline-block; background: var(--black); color: var(--yellow); font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; padding: 5px 14px; margin-bottom: 20px; }
-    .hero h1 { font-family: 'Oswald', sans-serif; font-size: clamp(32px, 7vw, 88px); line-height: 1.05; letter-spacing: -0.02em; font-style: italic; text-transform: uppercase; color: var(--indigo); }
-    .hero h1 .intro-small { display: block; font-size: clamp(16px, 2.5vw, 32px); color: var(--slate-600); font-style: normal; letter-spacing: 0; text-transform: none; margin-bottom: 4px; }
+    .hero h1 { font-family: 'Oswald', sans-serif; font-size: clamp(32px, 7vw, 88px); line-height: 1.05; letter-spacing: -0.02em; font-style: italic; font-weight: 700; text-transform: uppercase; color: var(--indigo); }
+    .hero h1 .intro-small { display: block; font-size: clamp(16px, 2.5vw, 32px); color: var(--slate-600); font-style: normal; font-weight: 700; letter-spacing: 0; text-transform: none; margin-bottom: 4px; }
     .hero h1 .highlight { color: var(--pink); background: var(--yellow); padding: 0 16px; display: inline-block; }
     .hero-sub { margin-top: 24px; font-size: clamp(17px, 2.2vw, 22px); font-weight: 700; color: var(--slate-600); max-width: 480px; line-height: 1.65; }
     .hero-sub em { color: var(--indigo); font-style: normal; }
@@ -53,14 +53,14 @@
     .avatars img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--white); margin-left: -8px; object-fit: cover; }
     .avatars img:first-child { margin-left: 0; }
     .hero-social p { font-weight: 700; color: var(--slate-500); }
-    .hero-image { flex: 1; position: relative; max-width: 480px; }
+    .hero-image { flex: 1; position: relative; max-width: 360px; }
     .hero-image-frame {
       border-radius: 24px;
       overflow: hidden;
       border: 8px solid var(--black);
       box-shadow: 20px 20px 0 var(--pink);
       position: relative;
-      aspect-ratio: 3/4;
+      aspect-ratio: 4/5;
     }
     .hero-image-frame img {
       width: 100%; height: 100%;
@@ -98,7 +98,7 @@
     .stain-section { background: #fdf6ec; padding: 96px 24px; border-top: 8px solid var(--black); }
     .stain-inner { max-width: 1100px; margin: 0 auto; }
     .stain-label { display: inline-block; background: var(--black); color: var(--yellow); font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; padding: 5px 14px; margin-bottom: 24px; font-style: italic; }
-    .stain-heading { font-family: 'Oswald', sans-serif; font-size: clamp(36px, 6vw, 68px); line-height: 1.05; text-transform: uppercase; font-style: italic; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .stain-heading { font-family: 'Oswald', sans-serif; font-size: clamp(36px, 6vw, 68px); line-height: 1.05; text-transform: uppercase; font-style: italic; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; }
     .stain-heading .em-yellow { background: var(--yellow); color: var(--black); padding: 0 12px; display: inline-block; }
     .stain-desc { font-size: clamp(16px, 1.8vw, 20px); font-weight: 700; color: var(--slate-600); max-width: 560px; line-height: 1.7; margin-bottom: 52px; }
     .stain-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
@@ -126,7 +126,7 @@
     .problem-sticker { display: inline-block; background: var(--yellow); color: var(--black); font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-style: italic; padding: 5px 14px; border: 3px solid var(--black); box-shadow: 4px 4px 0 var(--black); transform: rotate(-1.5deg); margin-bottom: 32px; }
     .problem-grid { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center; }
     @media (min-width: 768px) { .problem-grid { grid-template-columns: 1fr 1fr; align-items: center; } }
-    .problem-heading { font-family: 'Oswald', sans-serif; font-size: clamp(32px, 5.5vw, 60px); line-height: 1.1; font-style: italic; text-transform: uppercase; letter-spacing: -0.02em; margin-bottom: 32px; }
+    .problem-heading { font-family: 'Oswald', sans-serif; font-size: clamp(32px, 5.5vw, 60px); line-height: 1.1; font-style: italic; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; margin-bottom: 32px; }
     .problem-heading .underline { border-bottom: 5px solid var(--yellow); padding-bottom: 4px; }
     .problem-body { font-size: clamp(17px, 1.8vw, 21px); font-weight: 700; line-height: 1.75; color: var(--slate-600); }
     .problem-body strong { color: var(--indigo); }
@@ -157,14 +157,13 @@
     .tech-section { background: var(--black); color: var(--white); padding: 96px 24px; border-top: 8px solid var(--yellow); }
     .tech-inner { max-width: 1100px; margin: 0 auto; }
     .tech-eyebrow { font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--yellow); margin-bottom: 12px; font-style: italic; }
-    .tech-heading { font-family: 'Oswald', sans-serif; font-size: clamp(36px, 6vw, 72px); font-style: italic; text-transform: uppercase; letter-spacing: -0.02em; margin-bottom: 64px; line-height: 1.05; }
+    .tech-heading { font-family: 'Oswald', sans-serif; font-size: clamp(36px, 6vw, 72px); font-style: italic; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; margin-bottom: 64px; line-height: 1.05; }
     .tech-heading span { color: var(--yellow); }
-    .tech-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 40px; }
-    @media (min-width: 768px) { .tech-stats { grid-template-columns: repeat(3, 1fr); } }
-    .tech-stat { border: 3px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 32px 24px; background: rgba(255,255,255,0.04); transition: border-color 0.2s; }
+    .tech-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px; }
+    .tech-stat { border: 3px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 28px 20px; background: rgba(255,255,255,0.04); transition: border-color 0.2s; text-align: center; }
     .tech-stat:hover { border-color: var(--yellow); }
-    .tech-stat-num { font-family: 'Oswald', sans-serif; font-size: clamp(36px, 5vw, 56px); font-style: italic; color: var(--yellow); line-height: 1; margin-bottom: 8px; }
-    .tech-stat-label { font-size: 14px; font-weight: 700; color: var(--slate-400); line-height: 1.5; }
+    .tech-stat-num { font-family: 'Oswald', sans-serif; font-size: clamp(28px, 4vw, 52px); font-style: italic; font-weight: 700; color: var(--yellow); line-height: 1; margin-bottom: 8px; }
+    .tech-stat-label { font-size: clamp(11px, 1.2vw, 14px); font-weight: 700; color: var(--slate-400); line-height: 1.5; }
     .tech-waves { display: grid; grid-template-columns: 1fr; gap: 16px; }
     @media (min-width: 640px) { .tech-waves { grid-template-columns: repeat(3, 1fr); } }
     .tech-wave-card { border: 3px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 24px 20px; background: rgba(255,255,255,0.03); }
@@ -184,7 +183,7 @@
     .ai-bounce svg { width: 36px; height: 36px; }
     @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
     .ai-text { flex: 1; }
-    .ai-text h2 { font-family: 'Oswald', sans-serif; font-size: clamp(36px, 5.5vw, 68px); line-height: 1; text-transform: uppercase; font-style: italic; margin-bottom: 24px; }
+    .ai-text h2 { font-family: 'Oswald', sans-serif; font-size: clamp(36px, 5.5vw, 68px); line-height: 1; text-transform: uppercase; font-style: italic; font-weight: 700; margin-bottom: 24px; }
     .ai-text h2 span { color: #818cf8; }
     .ai-sub { font-size: 17px; font-weight: 700; color: var(--slate-400); margin-bottom: 20px; line-height: 1.7; }
     .ai-steps { display: flex; flex-direction: column; gap: 10px; }
@@ -195,7 +194,7 @@
     /* ⑦ 제품 라인업 */
     .lineup { padding: 96px 24px; border-top: 8px solid var(--black); }
     .lineup-inner { max-width: 1100px; margin: 0 auto; }
-    .lineup h2 { font-family: 'Oswald', sans-serif; font-size: clamp(36px, 6.5vw, 76px); text-align: center; text-transform: uppercase; letter-spacing: -0.02em; margin-bottom: 12px; font-style: italic; }
+    .lineup h2 { font-family: 'Oswald', sans-serif; font-size: clamp(36px, 6.5vw, 76px); text-align: center; text-transform: uppercase; letter-spacing: -0.02em; font-weight: 700; margin-bottom: 12px; font-style: italic; }
     .lineup h2 span { color: var(--indigo); }
     .lineup-sub { text-align: center; font-size: clamp(15px, 1.8vw, 19px); font-weight: 700; color: var(--slate-600); margin-bottom: 72px; }
     .product-grid { display: grid; grid-template-columns: 1fr; gap: 48px; }
@@ -222,13 +221,13 @@
     .package-banner-text h3 { font-family: 'Oswald', sans-serif; font-size: clamp(26px, 4vw, 42px); font-style: italic; text-transform: uppercase; margin-bottom: 12px; }
     .package-banner-text h3 span { color: var(--yellow); }
     .package-banner-text p { font-size: 16px; font-weight: 700; color: #a5b4fc; line-height: 1.7; margin-bottom: 20px; }
-    .package-tags { display: flex; flex-wrap: wrap; gap: 10px; }
-    .package-tag { background: rgba(255,255,255,0.08); border: 2px solid rgba(255,255,255,0.2); border-radius: 999px; padding: 6px 16px; font-size: 13px; font-weight: 700; color: var(--white); }
+    .package-tags { display: flex; flex-wrap: nowrap; gap: 8px; }
+    .package-tag { background: rgba(255,255,255,0.08); border: 2px solid rgba(255,255,255,0.2); border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 700; color: var(--white); white-space: nowrap; }
 
     /* ⑧ BEFORE/AFTER */
     .comparison { padding: 96px 24px; background: var(--indigo-900); color: var(--white); overflow: hidden; border-top: 8px solid var(--black); }
     .comparison-inner { max-width: 1100px; margin: 0 auto; }
-    .comparison h2 { font-family: 'Oswald', sans-serif; font-size: clamp(36px, 6vw, 72px); text-align: center; text-transform: uppercase; font-style: italic; margin-bottom: 12px; }
+    .comparison h2 { font-family: 'Oswald', sans-serif; font-size: clamp(36px, 6vw, 72px); text-align: center; text-transform: uppercase; font-style: italic; font-weight: 700; margin-bottom: 12px; }
     .comparison-sub { text-align: center; font-size: clamp(16px, 2vw, 22px); font-weight: 700; color: #a5b4fc; margin-bottom: 64px; font-style: italic; }
     .comparison-grid { display: grid; grid-template-columns: 1fr; gap: 32px; align-items: center; }
     @media (min-width: 768px) { .comparison-grid { grid-template-columns: 1fr 1fr; align-items: center; } }
@@ -246,7 +245,7 @@
     .cta-email { background: var(--yellow); color: var(--black); padding: 120px 24px; text-align: center; border-top: 8px solid var(--black); }
     .cta-email-inner { max-width: 680px; margin: 0 auto; }
     .cta-earlybird { display: inline-block; background: var(--black); color: var(--yellow); font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; font-style: italic; padding: 5px 14px; margin-bottom: 24px; transform: rotate(-1deg); }
-    .cta-email h2 { font-family: 'Oswald', sans-serif; font-size: clamp(44px, 8vw, 96px); line-height: 1.0; text-transform: uppercase; font-style: italic; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .cta-email h2 { font-family: 'Oswald', sans-serif; font-size: clamp(44px, 8vw, 96px); line-height: 1.0; text-transform: uppercase; font-style: italic; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; }
     .cta-email h2 span { background: var(--black); color: var(--yellow); padding: 0 20px; display: inline-block; }
     .cta-email-sub { font-size: clamp(16px, 2vw, 20px); font-weight: 700; color: var(--slate-600); margin-bottom: 8px; line-height: 1.6; }
     .cta-email-note { font-size: 14px; font-weight: 700; color: var(--slate-500); margin-bottom: 44px; }
@@ -261,10 +260,80 @@
     @media (max-width: 559px) { .email-btn { border-left: 4px solid var(--black); border-radius: 999px; } }
     .email-btn:hover { background: var(--indigo); border-color: var(--indigo); color: var(--white); }
     .email-success { display: none; font-family: 'Oswald', sans-serif; font-size: 20px; font-style: italic; color: var(--indigo); padding: 18px 32px; border: 4px solid var(--indigo); border-radius: 999px; background: var(--white); }
+    .email-error { display: none; margin-top: 10px; font-size: 14px; font-weight: 700; color: var(--pink); }
     .cta-benefit { font-size: 15px; font-weight: 700; color: var(--slate-600); }
+    .cta-promise { display: inline-block; margin-top: 8px; color: var(--pink); font-size: 14px; font-weight: 900; background: rgba(236,72,153,0.1); padding: 4px 14px; border-radius: 999px; border: 2px solid var(--pink); }
 
     /* FOOTER */
     footer { background: var(--black); color: var(--white); padding: 48px 24px; text-align: center; border-top: 8px solid var(--yellow); }
+
+    /* ── 팝업 모달 ── */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .popup-overlay.active { display: flex; }
+    .popup-box {
+      background: var(--white);
+      border: 5px solid var(--black);
+      border-radius: 24px;
+      box-shadow: 12px 12px 0 var(--black);
+      padding: 48px 40px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      animation: popIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes popIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to   { transform: scale(1);   opacity: 1; }
+    }
+    .popup-icon {
+      width: 64px; height: 64px;
+      background: var(--yellow);
+      border: 4px solid var(--black);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 28px;
+    }
+    .popup-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 28px; font-style: italic; font-weight: 700;
+      color: var(--black);
+      margin-bottom: 12px;
+    }
+    .popup-desc {
+      font-size: 15px; font-weight: 700;
+      color: var(--slate-600);
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+    .popup-desc strong { color: var(--indigo); }
+    .popup-close {
+      background: var(--black);
+      color: var(--yellow);
+      font-family: 'Oswald', sans-serif;
+      font-size: 18px; font-style: italic; font-weight: 700;
+      padding: 14px 40px;
+      border: none; border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 5px 5px 0 var(--indigo);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .popup-close:hover  { transform: translate(-2px,-2px); box-shadow: 7px 7px 0 var(--indigo); }
+    .popup-close:active { transform: translate(3px,3px);   box-shadow: 2px 2px 0 var(--indigo); }
+    @media (max-width: 767px) {
+      .popup-box   { padding: 36px 24px; }
+      .popup-title { font-size: 22px; }
+      .popup-desc  { font-size: 14px; }
+    }
     footer .logo { font-family: 'Oswald', sans-serif; font-size: 28px; font-style: italic; margin-bottom: 8px; }
     footer .tagline { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 0.15em; color: var(--slate-400); text-transform: uppercase; margin-bottom: 24px; }
     footer .copy { color: var(--slate-500); font-weight: 700; font-size: 13px; margin-bottom: 20px; }
@@ -277,14 +346,14 @@
       /* Hero */
       .hero { padding: 36px 20px 44px; gap: 24px; flex-direction: column; }
       .hero-text { width: 100%; }
-      .hero h1 { font-size: clamp(26px, 8.5vw, 42px); line-height: 1.08; }
+      .hero h1 { font-size: clamp(26px, 8.5vw, 42px); line-height: 1.08; font-weight: 700; }
       .hero-sub { font-size: 14px; margin-top: 14px; line-height: 1.65; }
       .btn-primary { padding: 14px 24px; font-size: 15px; width: 100%; justify-content: center; box-shadow: 4px 4px 0 var(--black); margin-top: 24px; }
       .hero-sticker { margin-top: 12px; font-size: 13px; }
       .hero-social { margin-top: 18px; gap: 8px; }
       .hero-social p { font-size: 13px; }
       .avatars img { width: 32px; height: 32px; }
-      .hero-image { max-width: 100%; width: 100%; }
+      .hero-image { max-width: 80%; width: 80%; align-self: center; }
       .hero-image-frame { box-shadow: 6px 6px 0 var(--pink); border-width: 4px; border-radius: 16px; aspect-ratio: 3/4; }
       .hero-image-frame img { object-position: center 65%; }
       .hero-image-badge { font-size: 13px; padding: 5px 10px; }
@@ -330,10 +399,10 @@
       /* 기술 수치 */
       .tech-section { padding: 44px 20px; }
       .tech-heading { font-size: clamp(20px, 6vw, 32px); margin-bottom: 28px; }
-      .tech-stats { grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
-      .tech-stat { padding: 18px 14px; border-width: 2px; }
-      .tech-stat-num { font-size: clamp(24px, 6vw, 36px); }
-      .tech-stat-label { font-size: 12px; }
+      .tech-stats { grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+      .tech-stat { padding: 16px 10px; border-width: 2px; }
+      .tech-stat-num { font-size: clamp(20px, 5.5vw, 32px); }
+      .tech-stat-label { font-size: 10px; }
       .tech-waves { grid-template-columns: 1fr; gap: 10px; }
       .tech-wave-card { padding: 16px 14px; border-width: 2px; }
       .tech-wave-nm { font-size: 22px; }
@@ -400,7 +469,7 @@
       <p class="hero-sub">
         커피 한 잔에도 착색된다는 거, 알고 계셨나요?<br>
         <em>미백 치약만으론 절대 안 돼요.</em><br>
-        Whitology로 변화를 경험하세요.
+        Whitology로 치아 미백 변화를 경험하세요.
       </p>
       <button class="btn-primary" id="hero-cta">나 관심 있음 →</button>
       <div class="hero-social">
@@ -594,7 +663,6 @@
           <div class="product-info blue">
             <h3>Whitening Care</h3>
             <p>LED 광선과 시너지를 내는 고농도 미백 젤. 2주면 눈에 띄는 변화.</p>
-            <a href="product-whitening.html" class="product-detail-link">자세히 보기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           </div>
         </div>
         <div class="product-card reveal">
@@ -602,7 +670,6 @@
           <div class="product-info orange">
             <h3>Gum Care</h3>
             <p>잇몸 건강을 집중 케어. 항균 성분으로 잇몸 출혈과 염증을 예방.</p>
-            <a href="product-gum.html" class="product-detail-link">자세히 보기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           </div>
         </div>
         <div class="product-card reveal">
@@ -610,7 +677,6 @@
           <div class="product-info purple">
             <h3>Fluoride Care</h3>
             <p>에나멜을 강화하고 충치를 예방하는 불소 젤. 미백과 건강, 동시에.</p>
-            <a href="product-fluoride.html" class="product-detail-link">자세히 보기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           </div>
         </div>
       </div>
@@ -622,9 +688,9 @@
           <h3>화이톨로지<br><span>프리미엄 패키지</span></h3>
           <p>디바이스 + 3종 젤 + AI 앱 연동까지.<br>구강 케어의 모든 것을 하나의 박스에 담았습니다.</p>
           <div class="package-tags">
-            <span class="package-tag">3종 전용 젤 포함</span>
-            <span class="package-tag">AI 앱 연동 가능</span>
-            <span class="package-tag">1박스 올인원 구성</span>
+            <span class="package-tag">젤 3종 포함</span>
+            <span class="package-tag">AI 앱 연동</span>
+            <span class="package-tag">1박스 올인원</span>
           </div>
         </div>
       </div>
@@ -637,14 +703,14 @@
       <div class="cta-earlybird reveal">얼리버드 혜택</div>
       <h2 class="reveal">나 먼저<br><span>알고 싶음.</span></h2>
       <p class="cta-email-sub reveal">
-        이메일 남기면 출시 소식 + 얼리버드 혜택 먼저 드려요.<br>
-        스팸은 안 보냄. 약속.
+        이메일 남기면 출시 소식 + 얼리버드 혜택 먼저 드려요.
       </p>
       <p class="cta-email-note reveal">알림 신청 시 출시 기념 <strong>40% 할인</strong> 혜택을 드립니다.</p>
       <div class="email-form reveal" id="email-form">
         <input type="email" class="email-input" id="email-input" placeholder="이메일 주소 입력" />
         <button class="email-btn" id="email-btn">신청하기 →</button>
       </div>
+      <p class="email-error" id="email-error">이메일 주소를 입력해 주세요.</p>
       <div class="email-success" id="email-success">
         ✓ 신청 완료! 런칭 소식 보내드릴게요.
       </div>
@@ -652,16 +718,25 @@
     </div>
   </section>
 
+  <!-- 팝업 모달 -->
+  <div class="popup-overlay" id="popup-overlay">
+    <div class="popup-box">
+      <div class="popup-icon">✓</div>
+      <div class="popup-title">신청 완료!</div>
+      <p class="popup-desc">
+        얼리버드 신청이 완료됐어요.<br>
+        출시 소식과 <strong>40% 할인 혜택</strong>을<br>
+        가장 먼저 보내드릴게요.
+      </p>
+      <button class="popup-close" id="popup-close">확인</button>
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <footer>
     <p class="logo">WHITOLOGY</p>
     <p class="tagline">The Future of Dental Care.</p>
     <p class="copy">© 2026 Whitology Inc. All Rights Reserved.</p>
-    <div class="links">
-      <a href="#">이용약관</a>
-      <a href="#">개인정보처리방침</a>
-      <a href="#">고객센터</a>
-    </div>
   </footer>
 
   <script>
@@ -678,16 +753,46 @@
       document.getElementById('cta').scrollIntoView({ behavior: 'smooth' });
     });
 
-    // Email submit
+    // Email submit → 팝업
     document.getElementById('email-btn').addEventListener('click', () => {
-      const val = document.getElementById('email-input').value.trim();
+      const input = document.getElementById('email-input');
+      const val = input.value.trim();
+      const error = document.getElementById('email-error');
+
       if (!val || !val.includes('@')) {
-        document.getElementById('email-input').focus();
+        input.style.borderColor = '#ec4899';
+        error.style.display = 'block';
+        input.focus();
         return;
       }
+
+      // 유효한 이메일 — 오류 초기화 후 팝업
+      input.style.borderColor = '';
+      error.style.display = 'none';
+      document.getElementById('popup-overlay').classList.add('active');
+    });
+
+    // 입력 중 오류 메시지 숨기기
+    document.getElementById('email-input').addEventListener('input', () => {
+      document.getElementById('email-input').style.borderColor = '';
+      document.getElementById('email-error').style.display = 'none';
+    });
+
+    // 팝업 닫기
+    document.getElementById('popup-close').addEventListener('click', () => {
+      document.getElementById('popup-overlay').classList.remove('active');
       document.getElementById('email-form').style.display = 'none';
       const success = document.getElementById('email-success');
       success.style.display = 'inline-block';
+    });
+
+    // 오버레이 배경 클릭으로 닫기
+    document.getElementById('popup-overlay').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) {
+        document.getElementById('popup-overlay').classList.remove('active');
+        document.getElementById('email-form').style.display = 'none';
+        document.getElementById('email-success').style.display = 'inline-block';
+      }
     });
   </script>
 </body>
