@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Whitology – 죄송합니다만, 미백의 급이 달라집니다.</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --indigo: #4f46e5; --indigo-dark: #4338ca; --indigo-900: #1e1b4b;
+      --pink: #ec4899; --yellow: #facc15;
+      --black: #0a0a0a; --white: #ffffff;
+      --slate-50: #f8fafc; --slate-400: #94a3b8;
+      --slate-500: #64748b; --slate-600: #475569; --slate-900: #0f172a;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif; color: var(--black); background: var(--white); overflow-x: hidden; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-50px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-scale { opacity: 0; transform: scale(0.88); transition: opacity 0.55s ease 0.2s, transform 0.55s ease 0.2s; }
+    .reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+    /* BANNER */
+    .banner { background: var(--yellow); padding: 10px 0; text-align: center; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; border-bottom: 4px solid var(--black); }
+
+    /* ① HERO */
+    .hero { background: var(--slate-50); padding: 80px 24px; display: flex; flex-direction: column; align-items: center; gap: 48px; }
+    @media (min-width: 1024px) { .hero { flex-direction: row; padding: 80px 80px; } }
+    .hero-text { flex: 1; }
+    .hero-tag { display: inline-block; background: var(--black); color: var(--yellow); font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; padding: 5px 14px; margin-bottom: 20px; }
+    .hero h1 { font-family: 'Oswald', sans-serif; font-size: clamp(22px, 4.5vw, 52px); line-height: 1.1; letter-spacing: -0.02em; font-style: italic; text-transform: uppercase; color: var(--indigo); }
+    .hero h1 .highlight { color: var(--pink); background: var(--yellow); padding: 0 16px; display: inline-block; }
+    .hero-sub { margin-top: 24px; font-size: clamp(17px, 2.2vw, 22px); font-weight: 700; color: var(--slate-600); max-width: 480px; line-height: 1.65; }
+    .hero-sub em { color: var(--indigo); font-style: normal; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 12px; margin-top: 36px; background: var(--indigo); color: var(--white); padding: 20px 40px; border-radius: 999px; font-size: clamp(17px, 2vw, 22px); font-family: 'Oswald', sans-serif; border: none; cursor: pointer; box-shadow: 8px 8px 0 var(--black); transition: transform 0.15s, box-shadow 0.15s, background 0.15s; }
+    .btn-primary:hover { background: var(--indigo-dark); transform: translate(-2px, -2px); box-shadow: 10px 10px 0 var(--black); }
+    .btn-primary:active { transform: translate(4px, 4px); box-shadow: 4px 4px 0 var(--black); }
+    .hero-sticker { display: inline-block; background: var(--pink); color: var(--white); font-family: 'Oswald', sans-serif; font-size: 14px; font-style: italic; padding: 6px 16px; border: 3px solid var(--black); border-radius: 4px; box-shadow: 4px 4px 0 var(--black); transform: rotate(-2deg); margin-top: 20px; }
+    .hero-social { display: flex; align-items: center; gap: 16px; margin-top: 28px; flex-wrap: wrap; }
+    .avatars { display: flex; }
+    .avatars img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--white); margin-left: -8px; object-fit: cover; }
+    .avatars img:first-child { margin-left: 0; }
+    .hero-social p { font-weight: 700; color: var(--slate-500); }
+    .hero-image { flex: 1; position: relative; max-width: 480px; }
+    .hero-image-frame { border-radius: 24px; overflow: hidden; border: 8px solid var(--black); box-shadow: 20px 20px 0 var(--pink); position: relative; max-height: 55vh; }
+    .hero-image-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
+    .hero-image-badge { position: absolute; top: 16px; left: 16px; background: var(--black); color: var(--white); padding: 8px 16px; font-family: 'Oswald', sans-serif; font-size: 18px; font-style: italic; text-transform: uppercase; }
+
+    /* ② 착색 원인 */
+    .stain-section { background: var(--white); padding: 96px 24px; border-top: 8px solid var(--black); }
+    .stain-inner { max-width: 1100px; margin: 0 auto; }
+    .stain-label { display: inline-block; background: var(--black); color: var(--yellow); font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; padding: 5px 14px; margin-bottom: 24px; font-style: italic; }
+    .stain-heading { font-family: 'Oswald', sans-serif; font-size: clamp(36px, 6vw, 68px); line-height: 1.05; text-transform: uppercase; font-style: italic; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .stain-heading .em-yellow { background: var(--yellow); color: var(--black); padding: 0 12px; display: inline-block; }
+    .stain-desc { font-size: clamp(16px, 1.8vw, 20px); font-weight: 700; color: var(--slate-600); max-width: 560px; line-height: 1.7; margin-bottom: 52px; }
+    .stain-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
+    @media (min-width: 768px) { .stain-grid { grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; } }
+    .stain-img-wrap { position: relative; border-radius: 20px; overflow: hidden; border: 6px solid var(--black); box-shadow: 12px 12px 0 var(--indigo); aspect-ratio: 1 / 1; }
+    .stain-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block; }
+    .stain-img-overlay { position: absolute; bottom: 0; left: 0; right: 0; display: flex; justify-content: space-between; padding: 16px; background: linear-gradient(transparent, rgba(0,0,0,0.72)); }
+    .stain-tag { font-family: 'Oswald', sans-serif; font-size: 12px; font-style: italic; letter-spacing: 0.05em; padding: 5px 12px; border-radius: 999px; border: 2px solid currentColor; }
+    .before-tag { color: var(--yellow); border-color: var(--yellow); }
+    .after-tag { color: var(--white); background: var(--indigo); border-color: var(--indigo); }
+    .stain-culprits { display: flex; flex-direction: column; gap: 14px; }
+    .culprit-card { display: flex; align-items: center; gap: 20px; background: var(--slate-50); border: 3px solid var(--black); border-radius: 16px; padding: 18px 22px; box-shadow: 5px 5px 0 var(--black); transition: transform 0.2s, box-shadow 0.2s; }
+    .culprit-card:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 var(--black); }
+    .culprit-icon { font-size: 28px; flex-shrink: 0; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; background: var(--yellow); border-radius: 12px; border: 3px solid var(--black); }
+    .culprit-text strong { display: block; font-family: 'Oswald', sans-serif; font-size: 19px; font-style: italic; }
+    .culprit-text span { font-size: 13px; font-weight: 700; color: var(--slate-500); }
+    .stain-cta-row { margin-top: 36px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .stain-cta-badge { background: var(--pink); color: var(--white); border: 3px solid var(--black); border-radius: 999px; padding: 10px 24px; font-family: 'Oswald', sans-serif; font-size: 17px; font-style: italic; box-shadow: 5px 5px 0 var(--black); }
+    .stain-cta-text { font-weight: 700; font-size: 15px; color: var(--slate-600); }
+    .stain-cta-text strong { color: var(--indigo); }
+
+    /* ③ PROBLEM */
+    .problem-section { background: var(--slate-50); color: var(--black); padding: 96px 24px; border-top: 8px solid var(--black); }
+    .problem-inner { max-width: 1100px; margin: 0 auto; }
+    .problem-sticker { display: inline-block; background: var(--yellow); color: var(--black); font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-style: italic; padding: 5px 14px; border: 3px solid var(--black); box-shadow: 4px 4px 0 var(--black); transform: rotate(-1.5deg); margin-bottom: 32px; }
+    .problem-grid { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center; }
+    @media (min-width: 768px) { .problem-grid { grid-template-columns: 1fr 1fr; align-items: center; } }
+    .problem-heading { font-family: 'Oswald', sans-serif; font-size: clamp(32px, 5.5vw, 60px); line-height: 1.1; font-style: italic; text-transform: uppercase; letter-spacing: -0.02em; margin-bottom: 32px; }
+    .problem-heading .underline { border-bottom: 5px solid var(--yellow); padding-bottom: 4px; }
+    .problem-body { font-size: clamp(17px, 1.8vw, 21px); font-weight: 700; line-height: 1.75; color: var(--slate-600); }
+    .problem-body strong { color: var(--indigo); }
+    .problem-img-wrap { border-radius: 20px; overflow: hidden; border: 5px solid var(--black); box-shadow: 12px 12px 0 var(--black); position: relative; aspect-ratio: 1 / 1; }
+    .problem-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; }
+    .problem-img-caption { position: absolute; bottom: 16px; left: 16px; background: var(--black); color: var(--yellow); font-family: 'Oswald', sans-serif; font-size: 14px; font-style: italic; padding: 6px 14px; border-radius: 4px; border: 2px solid var(--yellow); }
+    /* ④ FEATURES */
+    .features-section { padding: 96px 24px; background: var(--white); border-top: 8px solid var(--black); }
+    .features-inner { max-width: 1100px; margin: 0 auto; }
+    .features-eyebrow { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--indigo); margin-bottom: 12px; font-style: italic; }
+    .features-heading { font-family: 'Oswald', sans-serif; font-size: clamp(36px, 6vw, 72px); line-height: 1.05; font-style: italic; text-transform: uppercase; letter-spacing: -0.02em; margin-bottom: 64px; }
+    .features-heading span { color: var(--pink); }
+    .features-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+    @media (min-width: 640px) { .features-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .features-grid { grid-template-columns: repeat(4, 1fr); } }
+    .feature-card { border: 4px solid var(--black); border-radius: 20px; padding: 32px 28px; box-shadow: 8px 8px 0 var(--black); transition: transform 0.2s, box-shadow 0.2s; }
+    .feature-card:hover { transform: translate(-4px, -4px); box-shadow: 12px 12px 0 var(--black); }
+    .feature-card:nth-child(1) { background: #eff6ff; }
+    .feature-card:nth-child(2) { background: #fdf4ff; }
+    .feature-card:nth-child(3) { background: #f0fdf4; }
+    .feature-card:nth-child(4) { background: #fff7ed; }
+    .feature-num { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 0.15em; color: var(--slate-400); margin-bottom: 16px; }
+    .feature-label { font-family: 'Oswald', sans-serif; font-size: 22px; font-style: italic; margin-bottom: 4px; }
+    .feature-subtitle { font-size: 12px; font-weight: 900; color: var(--indigo); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; }
+    .feature-desc { font-size: 15px; font-weight: 700; color: var(--slate-600); line-height: 1.65; }
+
+    /* ⑤ 기술 수치 */
+    .tech-section { background: var(--black); color: var(--white); padding: 96px 24px; border-top: 8px solid var(--yellow); }
+    .tech-inner { max-width: 1100px; margin: 0 auto; }
+    .tech-eyebrow { font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--yellow); margin-bottom: 12px; font-style: italic; }
+    .tech-heading { font-family: 'Oswald', sans-serif; font-size: clamp(36px, 6vw, 72px); font-style: italic; text-transform: uppercase; letter-spacing: -0.02em; margin-bottom: 64px; line-height: 1.05; }
+    .tech-heading span { color: var(--yellow); }
+    .tech-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 40px; }
+    @media (min-width: 768px) { .tech-stats { grid-template-columns: repeat(3, 1fr); } }
+    .tech-stat { border: 3px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 32px 24px; background: rgba(255,255,255,0.04); transition: border-color 0.2s; }
+    .tech-stat:hover { border-color: var(--yellow); }
+    .tech-stat-num { font-family: 'Oswald', sans-serif; font-size: clamp(36px, 5vw, 56px); font-style: italic; color: var(--yellow); line-height: 1; margin-bottom: 8px; }
+    .tech-stat-label { font-size: 14px; font-weight: 700; color: var(--slate-400); line-height: 1.5; }
+    .tech-waves { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media (min-width: 640px) { .tech-waves { grid-template-columns: repeat(3, 1fr); } }
+    .tech-wave-card { border: 3px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 24px 20px; background: rgba(255,255,255,0.03); }
+    .tech-wave-nm { font-family: 'Oswald', sans-serif; font-size: 28px; font-style: italic; color: #818cf8; margin-bottom: 4px; }
+    .tech-wave-nm.violet { color: #a78bfa; }
+    .tech-wave-nm.medical { color: var(--yellow); font-size: 20px; }
+    .tech-wave-name { font-size: 12px; font-weight: 900; color: var(--white); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .tech-wave-desc { font-size: 13px; font-weight: 700; color: var(--slate-400); }
+
+    /* ⑥ AI */
+    .ai-section { background: var(--slate-900); color: var(--white); padding: 96px 24px; overflow: hidden; }
+    .ai-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 64px; align-items: center; }
+    @media (min-width: 1024px) { .ai-inner { flex-direction: row; } }
+    .ai-img-wrap { flex: 1; position: relative; max-width: 520px; width: 100%; }
+    .ai-img-wrap img { width: 100%; border-radius: 16px; border: 4px solid rgba(255,255,255,0.15); }
+    .ai-bounce { position: absolute; top: -32px; right: -32px; background: var(--indigo); border: 4px solid var(--white); border-radius: 50%; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; animation: bounce 2s infinite; }
+    .ai-bounce svg { width: 36px; height: 36px; }
+    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+    .ai-text { flex: 1; }
+    .ai-text h2 { font-family: 'Oswald', sans-serif; font-size: clamp(36px, 5.5vw, 68px); line-height: 1; text-transform: uppercase; font-style: italic; margin-bottom: 24px; }
+    .ai-text h2 span { color: #818cf8; }
+    .ai-sub { font-size: 17px; font-weight: 700; color: var(--slate-400); margin-bottom: 20px; line-height: 1.7; }
+    .ai-steps { display: flex; flex-direction: column; gap: 10px; }
+    .ai-step { display: flex; align-items: center; gap: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 12px 20px; min-height: 60px; }
+    .ai-step-num { width: 40px; height: 40px; background: var(--indigo); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Oswald', sans-serif; font-size: 16px; flex-shrink: 0; color: white; }
+    .ai-step p { font-size: 16px; font-weight: 700; line-height: 1.3; margin: 0; }
+
+    /* ⑦ 제품 라인업 */
+    .lineup { padding: 96px 24px; border-top: 8px solid var(--black); }
+    .lineup-inner { max-width: 1100px; margin: 0 auto; }
+    .lineup h2 { font-family: 'Oswald', sans-serif; font-size: clamp(36px, 6.5vw, 76px); text-align: center; text-transform: uppercase; letter-spacing: -0.02em; margin-bottom: 12px; font-style: italic; }
+    .lineup h2 span { color: var(--indigo); }
+    .lineup-sub { text-align: center; font-size: clamp(15px, 1.8vw, 19px); font-weight: 700; color: var(--slate-600); margin-bottom: 72px; }
+    .product-grid { display: grid; grid-template-columns: 1fr; gap: 48px; }
+    @media (min-width: 768px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
+    .product-card { position: relative; }
+    .product-img-wrap { aspect-ratio: 4/3; border-radius: 16px; overflow: hidden; border: 6px solid var(--black); margin-bottom: 24px; background: #f8fafc; transition: transform 0.4s ease; }
+    .product-card:hover .product-img-wrap { transform: translateY(-10px); }
+    .product-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .product-card:hover .product-img-wrap img { transform: scale(1.08); }
+    .product-info { color: var(--white); padding: 24px; border-radius: 16px; border: 4px solid var(--black); box-shadow: 8px 8px 0 var(--black); }
+    .product-info.blue { background: #3b82f6; }
+    .product-info.orange { background: #f97316; }
+    .product-info.purple { background: #a855f7; }
+    .product-info h3 { font-family: 'Oswald', sans-serif; font-size: 22px; margin-bottom: 6px; font-style: italic; }
+    .product-info p { font-weight: 700; opacity: 0.9; font-size: 15px; line-height: 1.5; }
+    .product-detail-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; font-family: 'Oswald', sans-serif; font-size: 14px; font-style: italic; color: var(--white); opacity: 0.85; transition: opacity 0.15s, gap 0.15s; }
+    .product-detail-link:hover { opacity: 1; gap: 10px; }
+    .product-detail-link svg { width: 15px; height: 15px; }
+    .package-banner { margin-top: 64px; background: var(--indigo-900); color: var(--white); border: 5px solid var(--black); border-radius: 24px; padding: 48px 40px; display: flex; flex-direction: column; gap: 32px; align-items: center; text-align: center; box-shadow: 12px 12px 0 var(--black); }
+    @media (min-width: 768px) { .package-banner { flex-direction: row; text-align: left; } }
+    .package-banner-img { flex: 1; max-width: 320px; }
+    .package-banner-img img { width: 100%; border-radius: 16px; border: 3px solid rgba(255,255,255,0.15); }
+    .package-banner-text { flex: 1; }
+    .package-banner-text h3 { font-family: 'Oswald', sans-serif; font-size: clamp(26px, 4vw, 42px); font-style: italic; text-transform: uppercase; margin-bottom: 12px; }
+    .package-banner-text h3 span { color: var(--yellow); }
+    .package-banner-text p { font-size: 16px; font-weight: 700; color: #a5b4fc; line-height: 1.7; margin-bottom: 20px; }
+    .package-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+    .package-tag { background: rgba(255,255,255,0.08); border: 2px solid rgba(255,255,255,0.2); border-radius: 999px; padding: 6px 16px; font-size: 13px; font-weight: 700; color: var(--white); }
+
+    /* ⑧ BEFORE/AFTER */
+    .comparison { padding: 96px 24px; background: var(--indigo-900); color: var(--white); overflow: hidden; border-top: 8px solid var(--black); }
+    .comparison-inner { max-width: 1100px; margin: 0 auto; }
+    .comparison h2 { font-family: 'Oswald', sans-serif; font-size: clamp(36px, 6vw, 72px); text-align: center; text-transform: uppercase; font-style: italic; margin-bottom: 12px; }
+    .comparison-sub { text-align: center; font-size: clamp(16px, 2vw, 22px); font-weight: 700; color: #a5b4fc; margin-bottom: 64px; font-style: italic; }
+    .comparison-grid { display: grid; grid-template-columns: 1fr; gap: 32px; align-items: center; }
+    @media (min-width: 768px) { .comparison-grid { grid-template-columns: 1fr 1fr; align-items: center; } }
+    .comparison-img-wrap { border-radius: 16px; overflow: hidden; border: 4px solid var(--white); position: relative; transition: transform 0.3s; aspect-ratio: 1 / 1; }
+    .comparison-img-wrap:hover { transform: scale(1.02); }
+    .comparison-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center 45%; display: block; }
+    .comparison-img-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); padding: 32px 24px 24px; font-family: 'Oswald', sans-serif; font-size: 26px; font-style: italic; color: var(--white); }
+    .why-box { background: rgba(255,255,255,0.08); border: 2px solid rgba(255,255,255,0.15); border-radius: 24px; padding: 40px; backdrop-filter: blur(8px); }
+    .why-box h3 { font-family: 'Oswald', sans-serif; font-size: 24px; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; font-style: italic; }
+    .why-box ul { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .why-box li { display: flex; align-items: center; gap: 12px; font-size: 17px; font-weight: 700; }
+    .quote-box { background: var(--pink); border: 4px solid var(--black); border-radius: 24px; padding: 32px; box-shadow: 10px 10px 0 var(--white); margin-top: 24px; font-family: 'Oswald', sans-serif; font-size: clamp(17px, 2vw, 21px); font-style: italic; line-height: 1.55; }
+
+    /* ⑨ 이메일 CTA */
+    .cta-email { background: var(--yellow); color: var(--black); padding: 120px 24px; text-align: center; border-top: 8px solid var(--black); }
+    .cta-email-inner { max-width: 680px; margin: 0 auto; }
+    .cta-earlybird { display: inline-block; background: var(--black); color: var(--yellow); font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; font-style: italic; padding: 5px 14px; margin-bottom: 24px; transform: rotate(-1deg); }
+    .cta-email h2 { font-family: 'Oswald', sans-serif; font-size: clamp(44px, 8vw, 96px); line-height: 1.0; text-transform: uppercase; font-style: italic; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .cta-email h2 span { background: var(--black); color: var(--yellow); padding: 0 20px; display: inline-block; }
+    .cta-email-sub { font-size: clamp(16px, 2vw, 20px); font-weight: 700; color: var(--slate-600); margin-bottom: 8px; line-height: 1.6; }
+    .cta-email-note { font-size: 14px; font-weight: 700; color: var(--slate-500); margin-bottom: 44px; }
+    .cta-email-note strong { color: var(--black); }
+    .email-form { display: flex; flex-direction: column; gap: 12px; max-width: 480px; margin: 0 auto 24px; }
+    @media (min-width: 560px) { .email-form { flex-direction: row; gap: 0; } }
+    .email-input { flex: 1; padding: 18px 24px; font-size: 16px; font-family: 'Noto Sans KR', sans-serif; font-weight: 700; border: 4px solid var(--black); border-radius: 999px 0 0 999px; outline: none; background: var(--white); color: var(--black); }
+    @media (max-width: 559px) { .email-input { border-radius: 999px; } }
+    .email-input::placeholder { color: var(--slate-400); }
+    .email-input:focus { border-color: var(--indigo); }
+    .email-btn { padding: 18px 32px; background: var(--black); color: var(--yellow); font-family: 'Oswald', sans-serif; font-size: 18px; font-style: italic; border: 4px solid var(--black); border-left: none; border-radius: 0 999px 999px 0; cursor: pointer; white-space: nowrap; transition: background 0.15s; }
+    @media (max-width: 559px) { .email-btn { border-left: 4px solid var(--black); border-radius: 999px; } }
+    .email-btn:hover { background: var(--indigo); border-color: var(--indigo); color: var(--white); }
+    .email-success { display: none; font-family: 'Oswald', sans-serif; font-size: 20px; font-style: italic; color: var(--indigo); padding: 18px 32px; border: 4px solid var(--indigo); border-radius: 999px; background: var(--white); }
+    .cta-benefit { font-size: 15px; font-weight: 700; color: var(--slate-600); }
+
+    /* FOOTER */
+    footer { background: var(--black); color: var(--white); padding: 48px 24px; text-align: center; border-top: 8px solid var(--yellow); }
+    footer .logo { font-family: 'Oswald', sans-serif; font-size: 28px; font-style: italic; margin-bottom: 8px; }
+    footer .tagline { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 0.15em; color: var(--slate-400); text-transform: uppercase; margin-bottom: 24px; }
+    footer .copy { color: var(--slate-500); font-weight: 700; font-size: 13px; margin-bottom: 20px; }
+    footer .links { display: flex; justify-content: center; gap: 24px; color: var(--slate-400); font-weight: 700; font-size: 13px; flex-wrap: wrap; }
+    footer .links a:hover { color: var(--white); }
+
+    /* MOBILE */
+    @media (max-width: 767px) {
+      /* Hero */
+      .hero { padding: 40px 20px 48px; gap: 28px; }
+      .hero-text { width: 100%; }
+      .hero h1 { font-size: clamp(20px, 6vw, 32px); }
+      .hero-image { max-width: 100%; width: 100%; }
+      .hero-image-frame {
+        max-height: 56vw;
+        box-shadow: 8px 8px 0 var(--pink);
+        border-width: 5px;
+      }
+      .btn-primary { padding: 15px 24px; font-size: 16px; width: 100%; justify-content: center; box-shadow: 5px 5px 0 var(--black); margin-top: 28px; }
+      .hero-sub { font-size: 15px; margin-top: 16px; }
+      .hero-sticker { margin-top: 14px; }
+      .hero-social { margin-top: 20px; gap: 10px; }
+
+      /* 착색 섹션 */
+      .stain-section { padding: 48px 20px; }
+      .stain-heading { font-size: clamp(28px, 7vw, 44px); }
+      .stain-desc { font-size: 15px; margin-bottom: 28px; }
+      .stain-img-wrap { box-shadow: 8px 8px 0 var(--indigo); border-width: 4px; }
+      .culprit-card { padding: 14px 16px; gap: 14px; }
+      .culprit-icon { width: 42px; height: 42px; font-size: 22px; }
+      .culprit-text strong { font-size: 16px; }
+      .culprit-text span { font-size: 12px; }
+      .stain-cta-row { margin-top: 24px; gap: 12px; }
+      .stain-cta-badge { font-size: 14px; padding: 8px 18px; }
+
+      /* Problem */
+      .problem-section { padding: 48px 20px; }
+      .problem-heading { font-size: clamp(26px, 7vw, 40px); margin-bottom: 20px; }
+      .problem-body { font-size: 15px; }
+      .problem-sticker { margin-bottom: 20px; }
+
+      /* Before/After — 치아만 보이게 크롭 */
+      .comparison { padding: 48px 20px; }
+      .comparison h2 { font-size: clamp(28px, 7vw, 44px); }
+      .comparison-sub { margin-bottom: 32px; font-size: 15px; }
+      .comparison-img-wrap { border-width: 3px; }
+      .comparison-img-wrap img { object-position: center 50%; }
+      .comparison-img-caption { font-size: 18px; padding: 20px 16px 16px; }
+      .why-box { padding: 20px 16px; }
+      .why-box h3 { font-size: 18px; margin-bottom: 16px; }
+      .why-box li { font-size: 14px; gap: 8px; }
+      .quote-box { padding: 20px; font-size: 15px; box-shadow: 6px 6px 0 var(--white); }
+
+      /* Features */
+      .features-section { padding: 48px 20px; }
+      .features-heading { font-size: clamp(28px, 7vw, 44px); margin-bottom: 36px; }
+      .feature-card { padding: 24px 20px; box-shadow: 5px 5px 0 var(--black); }
+
+      /* Tech */
+      .tech-section { padding: 48px 20px; }
+      .tech-heading { font-size: clamp(28px, 7vw, 44px); margin-bottom: 36px; }
+      .tech-stats { grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px; }
+      .tech-stat { padding: 20px 16px; }
+      .tech-stat-num { font-size: clamp(28px, 7vw, 44px); }
+      .tech-wave-card { padding: 18px 14px; }
+
+      /* AI */
+      .ai-section { padding: 48px 20px; }
+      .ai-inner { gap: 28px; }
+      .ai-bounce { top: -16px; right: -8px; width: 52px; height: 52px; }
+      .ai-bounce svg { width: 22px; height: 22px; }
+      .ai-text h2 { font-size: clamp(28px, 7vw, 44px); }
+      .ai-sub { font-size: 15px; }
+      .ai-step p { font-size: 14px; }
+
+      /* Lineup */
+      .lineup { padding: 48px 20px; }
+      .lineup h2 { font-size: clamp(28px, 7vw, 44px); margin-bottom: 8px; }
+      .lineup-sub { font-size: 14px; margin-bottom: 40px; }
+      .product-grid { gap: 32px; }
+      .product-img-wrap { margin-bottom: 16px; border-width: 4px; }
+      .product-info { padding: 18px; box-shadow: 5px 5px 0 var(--black); }
+      .package-banner { padding: 24px 20px; gap: 24px; box-shadow: 8px 8px 0 var(--black); }
+      .package-banner-text h3 { font-size: 22px; }
+
+      /* CTA */
+      .cta-email { padding: 60px 20px; }
+      .cta-email h2 { font-size: clamp(36px, 10vw, 56px); }
+      .cta-email-sub { font-size: 15px; }
+
+      /* Footer */
+      footer { padding: 36px 20px; }
+      footer .links { gap: 16px; }
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .hero, .stain-section, .problem-section, .features-section,
+      .tech-section, .ai-section, .lineup, .comparison, .cta-email { padding-left: 40px; padding-right: 40px; }
+      .comparison-img-wrap { min-height: 300px; max-height: 400px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="banner">⚠️ 경고: 너무 하얘져서 눈이 부실 수 있음 ⚠️</div>
+
+  <!-- ① HERO -->
+  <section class="hero">
+    <div class="hero-text reveal-left">
+      <div class="hero-tag">구강 케어 디바이스</div>
+      <h1>죄송합니다만,<br><span class="highlight">미백의 급이</span><br>달라집니다.</h1>
+      <p class="hero-sub">
+        커피 한 잔에도 착색된다는 거, 알고 계셨나요?<br>
+        <em>미백 치약만으론 절대 안 돼요.</em><br>
+        Whitology는 다릅니다.
+      </p>
+      <button class="btn-primary" id="hero-cta">나 관심 있음 →</button>
+      <div class="hero-sticker">진짜임</div>
+      <div class="hero-social">
+        <div class="avatars">
+          <img src="https://picsum.photos/seed/11/100/100" alt="user" referrerpolicy="no-referrer">
+          <img src="https://picsum.photos/seed/12/100/100" alt="user" referrerpolicy="no-referrer">
+          <img src="https://picsum.photos/seed/13/100/100" alt="user" referrerpolicy="no-referrer">
+          <img src="https://picsum.photos/seed/14/100/100" alt="user" referrerpolicy="no-referrer">
+          <img src="https://picsum.photos/seed/15/100/100" alt="user" referrerpolicy="no-referrer">
+        </div>
+        <p>이미 12,450명이 하얘졌습니다!</p>
+      </div>
+    </div>
+    <div class="hero-image reveal-scale">
+      <div class="hero-image-frame">
+        <img src="images/before3.png" alt="Whitology Before After">
+        <div class="hero-image-badge">REAL BEFORE &amp; AFTER</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ② 착색 원인 -->
+  <section class="stain-section">
+    <div class="stain-inner">
+      <div class="stain-label reveal">착색, 이렇게 생깁니다</div>
+      <h2 class="stain-heading reveal">매일 마시는 커피,<br><span class="em-yellow">치아엔 독</span>이었다고요?</h2>
+      <p class="stain-desc reveal">
+        미백 치약 열심히 쓰고 있는데 왜 안 하얘질까요?<br>
+        커피·카레·레드와인의 색소는 법랑질 깊숙이 침투해요.<br>
+        치약 거품으론 닿지도 않는 곳에 착 달라붙거든요.
+      </p>
+      <div class="stain-grid">
+        <div class="stain-img-wrap reveal-scale">
+          <img src="images/before5.png" alt="착색된 치아 Before After 클로즈업">
+          <div class="stain-img-overlay">
+            <span class="stain-tag before-tag">치약만 쓴 치아</span>
+            <span class="stain-tag after-tag">Whitology 7일 후</span>
+          </div>
+        </div>
+        <div class="stain-culprits reveal">
+          <div class="culprit-card">
+            <div class="culprit-icon">☕</div>
+            <div class="culprit-text"><strong>커피 &amp; 홍차</strong><span>타닌 성분이 치아 표면에 달라붙어 황변 유발</span></div>
+          </div>
+          <div class="culprit-card">
+            <div class="culprit-icon">🍷</div>
+            <div class="culprit-text"><strong>레드와인</strong><span>짙은 색소가 법랑질 미세틈으로 침투</span></div>
+          </div>
+          <div class="culprit-card">
+            <div class="culprit-icon">🍛</div>
+            <div class="culprit-text"><strong>카레 &amp; 강황</strong><span>지용성 색소, 일반 칫솔질로는 제거 안 됨</span></div>
+          </div>
+          <div class="culprit-card">
+            <div class="culprit-icon">🚬</div>
+            <div class="culprit-text"><strong>담배</strong><span>니코틴·타르가 치아에 강하게 고착</span></div>
+          </div>
+          <div class="stain-cta-row">
+            <div class="stain-cta-badge">Whitology가 해결합니다</div>
+            <p class="stain-cta-text">7일이면 <strong>눈에 띄게</strong> 달라져요</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ③ PROBLEM -->
+  <section class="problem-section">
+    <div class="problem-inner">
+      <div class="problem-sticker reveal">현실 직시</div>
+      <div class="problem-grid">
+        <div class="reveal">
+          <h2 class="problem-heading">회사 다니는<br>우리 언니도<br><span class="underline">치아색 때문에</span><br>고민한대.</h2>
+          <p class="problem-body">
+            스킨케어는 <strong>10단계</strong>인데,<br>
+            구강 케어는 아직도 칫솔 하나야?<br><br>
+            피부에 쓰는 돈의 1%도 안 쓰면서<br>
+            치아가 예뻐지길 바라는 거,<br>
+            솔직히 좀 웃기지 않아요?
+          </p>
+        </div>
+        <div class="problem-img-wrap reveal-scale">
+          <img src="images/before.png" alt="치아 고민">
+          <div class="problem-img-caption">치아 때문에?</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ④ BEFORE/AFTER (Problem 바로 아래) -->
+  <section class="comparison">
+    <div class="comparison-inner">
+      <h2 class="reveal">이걸 쓰면<br>어떻게 되냐고요?</h2>
+      <p class="comparison-sub reveal">치아가 빛납니다. 거짓말 같지만 진짜입니다.</p>
+      <div class="comparison-grid">
+        <div class="comparison-img-wrap reveal">
+          <img src="images/before.png" alt="Whitology Before After">
+          <div class="comparison-img-caption">압도적인 미백 효과</div>
+        </div>
+        <div class="reveal">
+          <div class="why-box">
+            <h3>
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="#facc15" stroke="#facc15" stroke-width="1"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              왜 Whitology 인가?
+            </h3>
+            <ul>
+              <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>식약처 인증 미백 성분 함유</li>
+              <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>7일 만에 완성되는 화이트닝</li>
+              <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>시림 증상 최소화 공법</li>
+              <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>AI 구강 분석 앱 연동 케어</li>
+            </ul>
+          </div>
+          <div class="quote-box">
+            "커피, 카레, 담배...<br>그 어떤 착색도 Whitology 앞에선 무릎 꿇습니다."
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑤ FEATURES -->
+  <section class="features-section">
+    <div class="features-inner">
+      <p class="features-eyebrow reveal">Whitology가 바꿔줄게</p>
+      <h2 class="features-heading reveal">진동, 젤, 미백, 잇몸.<br><span>한 번에.</span></h2>
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-num">01</div>
+          <div class="feature-label">Sonic Care</div>
+          <div class="feature-subtitle">초음파 진동</div>
+          <p class="feature-desc">칫솔이 못 간 곳까지 쑤셔드림. 아프진 않음. 진짜로.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-num">02</div>
+          <div class="feature-label">Gel Infusion</div>
+          <div class="feature-subtitle">구강 젤 침투 — 마법아님</div>
+          <p class="feature-desc">바르면 스며드는 기술. 마법 같지만 기술임.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-num">03</div>
+          <div class="feature-label">Whitening</div>
+          <div class="feature-subtitle">미백 케어</div>
+          <p class="feature-desc">치아가 점점 밝아지는 기분이 아니라 실제로 밝아짐.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-num">04</div>
+          <div class="feature-label">Gum Care</div>
+          <div class="feature-subtitle">잇몸 케어</div>
+          <p class="feature-desc">잇몸도 케어 받고 싶었잖아요. 사실.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑤ 기술 수치 -->
+  <section class="tech-section">
+    <div class="tech-inner">
+      <p class="tech-eyebrow reveal">기술이 만드는 차이</p>
+      <h2 class="tech-heading reveal">숫자가<br><span>증명합니다.</span></h2>
+      <div class="tech-stats">
+        <div class="tech-stat reveal">
+          <div class="tech-stat-num">98%</div>
+          <div class="tech-stat-label">사용자 만족도<br>Satisfaction</div>
+        </div>
+        <div class="tech-stat reveal">
+          <div class="tech-stat-num">2.4x</div>
+          <div class="tech-stat-label">기존 대비 빠른 효과<br>Faster Result</div>
+        </div>
+        <div class="tech-stat reveal">
+          <div class="tech-stat-num">4.5</div>
+          <div class="tech-stat-label">2주 사용 시<br>평균 밝기 개선 단계</div>
+        </div>
+      </div>
+      <div class="tech-waves">
+        <div class="tech-wave-card reveal">
+          <div class="tech-wave-nm">460nm</div>
+          <div class="tech-wave-name">BLUE LIGHT</div>
+          <div class="tech-wave-desc">미백 활성 파장 — 착색 색소를 분해합니다</div>
+        </div>
+        <div class="tech-wave-card reveal">
+          <div class="tech-wave-nm violet">405nm</div>
+          <div class="tech-wave-name">VIOLET LIGHT</div>
+          <div class="tech-wave-desc">구강 살균 파장 — 세균 번식을 억제합니다</div>
+        </div>
+        <div class="tech-wave-card reveal">
+          <div class="tech-wave-nm medical">MEDICAL GRADE</div>
+          <div class="tech-wave-name">안전한 소재</div>
+          <div class="tech-wave-desc">의료 등급 실리콘, 식약처 인증 성분만 사용합니다</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑥ AI 구강 진단 -->
+  <section class="ai-section">
+    <div class="ai-inner">
+      <div class="ai-img-wrap reveal-scale">
+        <img src="images/Whitology4_AI_analysis3.jpg" alt="Whitology App AI 구강진단">
+        <div class="ai-bounce">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
+          </svg>
+        </div>
+      </div>
+      <div class="ai-text reveal">
+        <h2>스마트한<br><span>AI 구강 진단</span></h2>
+        <p class="ai-sub">들어는 보셨나요, 자동 미백.<br>AI가 먼저 눈치채고 알아서 케어하니까.<br>어느 순간부터는 미백에 신경을 끄게 됩니다.</p>
+        <div class="ai-steps">
+          <div class="ai-step"><div class="ai-step-num">01</div><p>치아 사진 촬영</p></div>
+          <div class="ai-step"><div class="ai-step-num">02</div><p>AI 정밀 분석 — 치태, 잇몸, 충치 동시 진단</p></div>
+          <div class="ai-step"><div class="ai-step-num">03</div><p>맞춤형 미백 플랜 제공</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑦ 제품 라인업 -->
+  <section class="lineup">
+    <div class="lineup-inner">
+      <h2 class="reveal">완벽한 <span>구강 케어</span> 시스템</h2>
+      <p class="lineup-sub reveal">디바이스와 전용 젤이 함께 만드는 프리미엄 경험</p>
+      <div class="product-grid">
+        <div class="product-card reveal">
+          <div class="product-img-wrap"><img src="images/whitening-pen.jpeg" alt="Whitening Care"></div>
+          <div class="product-info blue">
+            <h3>Whitening Care</h3>
+            <p>LED 광선과 시너지를 내는 고농도 미백 젤. 2주면 눈에 띄는 변화.</p>
+            <a href="product-whitening.html" class="product-detail-link">자세히 보기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+        <div class="product-card reveal">
+          <div class="product-img-wrap"><img src="images/gum-care.jpeg" alt="Gum Care"></div>
+          <div class="product-info orange">
+            <h3>Gum Care</h3>
+            <p>잇몸 건강을 집중 케어. 항균 성분으로 잇몸 출혈과 염증을 예방.</p>
+            <a href="product-gum.html" class="product-detail-link">자세히 보기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+        <div class="product-card reveal">
+          <div class="product-img-wrap"><img src="images/fluoride-care.jpeg" alt="Fluoride Care"></div>
+          <div class="product-info purple">
+            <h3>Fluoride Care</h3>
+            <p>에나멜을 강화하고 충치를 예방하는 불소 젤. 미백과 건강, 동시에.</p>
+            <a href="product-fluoride.html" class="product-detail-link">자세히 보기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="package-banner reveal">
+        <div class="package-banner-img">
+          <img src="images/Whitology3_Package.png" alt="Whitology 프리미엄 패키지">
+        </div>
+        <div class="package-banner-text">
+          <h3>화이톨로지<br><span>프리미엄 패키지</span></h3>
+          <p>디바이스 + 3종 젤 + AI 앱 연동까지.<br>구강 케어의 모든 것을 하나의 박스에 담았습니다.</p>
+          <div class="package-tags">
+            <span class="package-tag">3종 전용 젤 포함</span>
+            <span class="package-tag">AI 앱 연동 가능</span>
+            <span class="package-tag">1박스 올인원 구성</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑨ 이메일 CTA -->
+  <section class="cta-email" id="cta">
+    <div class="cta-email-inner">
+      <div class="cta-earlybird reveal">얼리버드 혜택</div>
+      <h2 class="reveal">나 먼저<br><span>알고 싶음.</span></h2>
+      <p class="cta-email-sub reveal">
+        이메일 남기면 출시 소식 + 얼리버드 혜택 먼저 드려요.<br>
+        스팸은 안 보냄. 약속.
+      </p>
+      <p class="cta-email-note reveal">알림 신청 시 출시 기념 <strong>40% 할인</strong> 혜택을 드립니다.</p>
+      <div class="email-form reveal" id="email-form">
+        <input type="email" class="email-input" id="email-input" placeholder="이메일 주소 입력" />
+        <button class="email-btn" id="email-btn">신청하기 →</button>
+      </div>
+      <div class="email-success" id="email-success">
+        ✓ 신청 완료! 런칭 소식 보내드릴게요.
+      </div>
+      <p class="cta-benefit reveal">런칭 소식만 보내드립니다</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="logo">WHITOLOGY</p>
+    <p class="tagline">The Future of Dental Care.</p>
+    <p class="copy">© 2026 Whitology Inc. All Rights Reserved.</p>
+    <div class="links">
+      <a href="#">이용약관</a>
+      <a href="#">개인정보처리방침</a>
+      <a href="#">고객센터</a>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-scale').forEach(el => observer.observe(el));
+
+    // Hero CTA → scroll to email
+    document.getElementById('hero-cta').addEventListener('click', () => {
+      document.getElementById('cta').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Email submit
+    document.getElementById('email-btn').addEventListener('click', () => {
+      const val = document.getElementById('email-input').value.trim();
+      if (!val || !val.includes('@')) {
+        document.getElementById('email-input').focus();
+        return;
+      }
+      document.getElementById('email-form').style.display = 'none';
+      const success = document.getElementById('email-success');
+      success.style.display = 'inline-block';
+    });
+  </script>
+</body>
+</html>
