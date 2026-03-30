@@ -243,15 +243,39 @@
     .why-box li { display: flex; align-items: center; gap: 12px; font-size: 17px; font-weight: 700; }
     .quote-box { background: var(--pink); border: 4px solid var(--black); border-radius: 24px; padding: 32px; box-shadow: 10px 10px 0 var(--white); margin-top: 24px; font-family: 'Oswald', sans-serif; font-size: clamp(17px, 2vw, 21px); font-style: italic; line-height: 1.55; }
 
+    /* ⑧-B 스타터 키트 CTA */
+    .starter-kit { background: var(--yellow); color: var(--black); padding: 100px 24px; border-top: 8px solid var(--black); }
+    .starter-kit-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+    .starter-kit-badge { display: inline-block; background: var(--black); color: var(--yellow); font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; font-style: italic; padding: 5px 16px; border-radius: 999px; margin-bottom: 28px; }
+    .starter-kit h2 { font-family: 'Oswald', sans-serif; font-size: clamp(40px, 8vw, 88px); line-height: 1.0; text-transform: uppercase; font-style: italic; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 20px; }
+    .starter-kit h2 .sk-highlight { background: var(--black); color: var(--white); padding: 0 6px; display: inline-block; }
+    .starter-kit-sub { font-size: clamp(16px, 2vw, 20px); font-weight: 700; color: var(--slate-600); margin-bottom: 6px; line-height: 1.6; }
+    .starter-kit-note { font-size: 14px; font-weight: 700; color: var(--slate-500); margin-bottom: 40px; }
+    .starter-kit-list { list-style: none; display: flex; flex-direction: column; gap: 10px; max-width: 400px; margin: 0 auto 44px; text-align: left; }
+    .starter-kit-list li { display: flex; align-items: center; gap: 10px; font-size: clamp(15px, 1.8vw, 18px); font-weight: 700; color: var(--black); }
+    .starter-kit-list li::before { content: '●'; color: var(--black); font-size: 8px; flex-shrink: 0; }
+    .btn-starter { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--black); color: var(--white); padding: 22px 56px; border-radius: 999px; font-size: clamp(18px, 2.2vw, 24px); font-family: 'Oswald', sans-serif; font-style: italic; border: none; cursor: pointer; box-shadow: 8px 8px 0 rgba(0,0,0,0.2); transition: transform 0.15s, box-shadow 0.15s; text-decoration: none; }
+    .btn-starter:hover { transform: translate(-3px, -3px); box-shadow: 11px 11px 0 rgba(0,0,0,0.25); }
+    .btn-starter:active { transform: translate(4px, 4px); box-shadow: 4px 4px 0 rgba(0,0,0,0.2); }
+    @media (max-width: 767px) {
+      .starter-kit { padding: 56px 20px; }
+      .starter-kit h2 { font-size: clamp(32px, 10vw, 52px); }
+      .starter-kit-sub { font-size: 14px; }
+      .starter-kit-note { font-size: 13px; margin-bottom: 28px; }
+      .starter-kit-list { max-width: 100%; margin-bottom: 32px; }
+      .starter-kit-list li { font-size: 14px; }
+      .btn-starter { width: 100%; padding: 18px 24px; font-size: 18px; }
+    }
+
     /* ⑨ 이메일 CTA */
-    .cta-email { background: var(--yellow); color: var(--black); padding: 120px 24px; text-align: center; border-top: 8px solid var(--black); }
+    .cta-email { background: var(--black); color: var(--white); padding: 120px 24px; text-align: center; border-top: 8px solid var(--yellow); }
     .cta-email-inner { max-width: 680px; margin: 0 auto; }
-    .cta-earlybird { display: inline-block; background: var(--black); color: var(--yellow); font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; font-style: italic; padding: 5px 14px; margin-bottom: 24px; transform: rotate(-1deg); }
-    .cta-email h2 { font-family: 'Oswald', sans-serif; font-size: clamp(44px, 8vw, 96px); line-height: 1.0; text-transform: uppercase; font-style: italic; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; }
-    .cta-email h2 span { background: var(--black); color: var(--yellow); padding: 0 4px; display: inline-block; }
-    .cta-email-sub { font-size: clamp(16px, 2vw, 20px); font-weight: 700; color: var(--slate-600); margin-bottom: 8px; line-height: 1.6; }
-    .cta-email-note { font-size: 14px; font-weight: 700; color: var(--slate-500); margin-bottom: 44px; }
-    .cta-email-note strong { color: var(--black); }
+    .cta-earlybird { display: inline-block; background: var(--yellow); color: var(--black); font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; font-style: italic; padding: 5px 14px; margin-bottom: 24px; transform: rotate(-1deg); }
+    .cta-email h2 { font-family: 'Oswald', sans-serif; font-size: clamp(44px, 8vw, 96px); line-height: 1.0; text-transform: uppercase; font-style: italic; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; color: var(--white); }
+    .cta-email h2 span { background: var(--yellow); color: var(--black); padding: 0 4px; display: inline-block; }
+    .cta-email-sub { font-size: clamp(16px, 2vw, 20px); font-weight: 700; color: var(--slate-400); margin-bottom: 8px; line-height: 1.6; }
+    .cta-email-note { font-size: 14px; font-weight: 700; color: var(--slate-400); margin-bottom: 44px; }
+    .cta-email-note strong { color: var(--yellow); }
     .email-form { display: flex; flex-direction: column; gap: 12px; max-width: 480px; margin: 0 auto 24px; }
     @media (min-width: 560px) { .email-form { flex-direction: row; gap: 0; } }
     .email-input { flex: 1; padding: 18px 24px; font-size: 16px; font-family: 'Noto Sans KR', sans-serif; font-weight: 700; border: 4px solid var(--black); border-radius: 999px 0 0 999px; outline: none; background: var(--white); color: var(--black); }
@@ -261,9 +285,9 @@
     .email-btn { padding: 18px 32px; background: var(--black); color: var(--yellow); font-family: 'Oswald', sans-serif; font-size: 18px; font-style: italic; border: 4px solid var(--black); border-left: none; border-radius: 0 999px 999px 0; cursor: pointer; white-space: nowrap; transition: background 0.15s; }
     @media (max-width: 559px) { .email-btn { border-left: 4px solid var(--black); border-radius: 999px; } }
     .email-btn:hover { background: var(--indigo); border-color: var(--indigo); color: var(--white); }
-    .email-success { display: none; font-family: 'Oswald', sans-serif; font-size: clamp(16px, 2vw, 20px); font-style: italic; color: var(--indigo); padding: 18px 32px; border: 4px solid var(--indigo); border-radius: 999px; background: var(--white); }
+    .email-success { display: none; font-family: 'Oswald', sans-serif; font-size: clamp(16px, 2vw, 20px); font-style: italic; color: var(--yellow); padding: 18px 32px; border: 4px solid var(--yellow); border-radius: 999px; background: rgba(255,255,255,0.1); }
     .email-error { display: none; margin-top: 10px; font-size: 14px; font-weight: 700; color: var(--pink); }
-    .cta-benefit { font-size: 15px; font-weight: 700; color: var(--slate-600); }
+    .cta-benefit { font-size: 15px; font-weight: 700; color: var(--slate-400); }
     .cta-promise { display: inline-block; margin-top: 8px; color: var(--pink); font-size: 14px; font-weight: 900; background: rgba(236,72,153,0.1); padding: 4px 14px; border-radius: 999px; border: 2px solid var(--pink); }
 
     /* FOOTER */
@@ -286,16 +310,27 @@
       border: 5px solid var(--black);
       border-radius: 24px;
       box-shadow: 12px 12px 0 var(--black);
-      padding: 48px 40px;
-      max-width: 400px;
+      padding: 48px 40px 40px;
+      max-width: 420px;
       width: 100%;
       text-align: center;
+      position: relative;
       animation: popIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     @keyframes popIn {
       from { transform: scale(0.8); opacity: 0; }
       to   { transform: scale(1);   opacity: 1; }
     }
+    .popup-x {
+      position: absolute;
+      top: 16px; right: 20px;
+      background: none; border: none;
+      font-size: 18px; color: var(--slate-400);
+      cursor: pointer; padding: 4px 8px;
+      line-height: 1;
+      transition: color 0.15s;
+    }
+    .popup-x:hover { color: var(--black); }
     .popup-icon {
       width: 64px; height: 64px;
       background: var(--yellow);
@@ -305,6 +340,7 @@
       margin: 0 auto 20px;
       font-size: 28px;
     }
+    .popup-icon.done { background: #d1fae5; }
     .popup-title {
       font-family: 'Oswald', sans-serif;
       font-size: 28px; font-style: italic; font-weight: 700;
@@ -318,6 +354,48 @@
       margin-bottom: 28px;
     }
     .popup-desc strong { color: var(--indigo); }
+    .signup-fields { display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; }
+    .signup-input {
+      width: 100%;
+      padding: 15px 20px;
+      font-size: 16px;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-weight: 700;
+      border: 3px solid var(--black);
+      border-radius: 12px;
+      outline: none;
+      background: var(--white);
+      color: var(--black);
+      transition: border-color 0.15s;
+    }
+    .signup-input::placeholder { color: var(--slate-400); }
+    .signup-input:focus { border-color: var(--indigo); }
+    .signup-input.error { border-color: var(--pink); }
+    .signup-error {
+      font-size: 13px; font-weight: 700;
+      color: var(--pink);
+      min-height: 18px;
+      text-align: left;
+    }
+    .popup-submit {
+      width: 100%;
+      background: var(--black);
+      color: var(--yellow);
+      font-family: 'Oswald', sans-serif;
+      font-size: 20px; font-style: italic; font-weight: 700;
+      padding: 16px 24px;
+      border: none; border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 5px 5px 0 var(--indigo);
+      transition: transform 0.15s, box-shadow 0.15s;
+      margin-bottom: 14px;
+    }
+    .popup-submit:hover  { transform: translate(-2px,-2px); box-shadow: 7px 7px 0 var(--indigo); }
+    .popup-submit:active { transform: translate(3px,3px);   box-shadow: 2px 2px 0 var(--indigo); }
+    .popup-note {
+      font-size: 13px; font-weight: 700;
+      color: var(--slate-400);
+    }
     .popup-close {
       background: var(--black);
       color: var(--yellow);
@@ -332,9 +410,10 @@
     .popup-close:hover  { transform: translate(-2px,-2px); box-shadow: 7px 7px 0 var(--indigo); }
     .popup-close:active { transform: translate(3px,3px);   box-shadow: 2px 2px 0 var(--indigo); }
     @media (max-width: 767px) {
-      .popup-box   { padding: 36px 24px; }
+      .popup-box   { padding: 40px 22px 32px; }
       .popup-title { font-size: 22px; }
       .popup-desc  { font-size: 14px; }
+      .popup-submit { font-size: 18px; }
     }
     footer .logo { font-family: 'Oswald', sans-serif; font-size: 28px; font-style: italic; margin-bottom: 8px; }
     footer .tagline { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 0.15em; color: var(--slate-400); text-transform: uppercase; margin-bottom: 24px; }
@@ -706,38 +785,50 @@
     </div>
   </section>
 
-  <!-- ⑨ 이메일 CTA -->
-  <section class="cta-email" id="cta">
-    <div class="cta-email-inner">
-      <div class="cta-earlybird reveal">얼리버드 혜택</div>
-      <h2 class="reveal">나 먼저<br><span>알고 싶음.</span></h2>
-      <p class="cta-email-sub reveal">
-        이메일 남기면 출시 소식 + 얼리버드 혜택 먼저 드려요.
-      </p>
-      <p class="cta-email-note reveal">알림 신청 시 출시 기념 <strong>40% 할인</strong> 혜택을 드립니다.</p>
-      <div class="email-form reveal" id="email-form">
-        <input type="email" class="email-input" id="email-input" placeholder="이메일 주소 입력" />
-        <button class="email-btn" id="email-btn">신청하기 →</button>
-      </div>
-      <p class="email-error" id="email-error">이메일 주소를 입력해 주세요.</p>
-      <div class="email-success" id="email-success">
-        ✓ 신청 완료! 런칭 소식 보내드릴게요.
-      </div>
-      <p class="cta-benefit reveal">런칭 소식만 보내드립니다</p>
+  <!-- ⑧-B 스타터 키트 CTA -->
+  <section class="starter-kit">
+    <div class="starter-kit-inner">
+      <div class="starter-kit-badge reveal">● 스타터 키트 출시</div>
+      <h2 class="reveal">시작은 <span class="sk-highlight">지금</span><br>이어야 합니다</h2>
+      <p class="starter-kit-sub reveal">AI 구강 케어 디바이스 + 미백 젤 펜까지.</p>
+      <p class="starter-kit-sub reveal">오늘 바로 루틴을 시작하세요.</p>
+      <p class="starter-kit-note reveal">&nbsp;</p>
+      <ul class="starter-kit-list reveal">
+        <li>Whitology 구강 케어 디바이스 × 1</li>
+        <li>미백 젤 펜 × 2 (30일분)</li>
+        <li>전용 앱 연동 가이드 포함</li>
+        <li>30일 만족 보장</li>
+      </ul>
+      <button class="btn-starter reveal" id="open-signup-popup">지금 바로 시작하기 →</button>
     </div>
   </section>
 
-  <!-- 팝업 모달 -->
+  <!-- 신청 팝업 모달 -->
   <div class="popup-overlay" id="popup-overlay">
     <div class="popup-box">
-      <div class="popup-icon">✓</div>
-      <div class="popup-title">신청 완료!</div>
-      <p class="popup-desc">
-        얼리버드 신청이 완료됐어요.<br>
-        출시 소식과 <strong>40% 할인 혜택</strong>을<br>
-        가장 먼저 보내드릴게요.
-      </p>
-      <button class="popup-close" id="popup-close">확인</button>
+      <button class="popup-x" id="popup-x" aria-label="닫기">✕</button>
+
+      <!-- 입력 단계 -->
+      <div id="signup-form-wrap">
+        <div class="popup-icon">✦</div>
+        <div class="popup-title">얼리버드 신청</div>
+        <p class="popup-desc">이름과 이메일을 남겨주시면<br>출시 소식과 <strong>40% 할인 혜택</strong>을<br>가장 먼저 보내드릴게요.</p>
+        <div class="signup-fields">
+          <input type="text" id="signup-name" class="signup-input" placeholder="이름" autocomplete="name" />
+          <input type="email" id="signup-email" class="signup-input" placeholder="이메일 주소" autocomplete="email" />
+          <p class="signup-error" id="signup-error"></p>
+        </div>
+        <button class="popup-submit" id="popup-submit">신청하기 →</button>
+        <p class="popup-note">런칭 소식만 보내드립니다</p>
+      </div>
+
+      <!-- 완료 단계 -->
+      <div id="signup-done-wrap" style="display:none;">
+        <div class="popup-icon done">✓</div>
+        <div class="popup-title">신청 완료!</div>
+        <p class="popup-desc">얼리버드 신청이 완료됐어요.<br>출시 소식과 <strong>40% 할인 혜택</strong>을<br>가장 먼저 보내드릴게요.</p>
+        <button class="popup-close" id="popup-close">확인</button>
+      </div>
     </div>
   </div>
 
@@ -757,52 +848,68 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal, .reveal-left, .reveal-scale').forEach(el => observer.observe(el));
 
-    // Hero CTA → scroll to email
-    document.getElementById('hero-cta').addEventListener('click', () => {
-      document.getElementById('cta').scrollIntoView({ behavior: 'smooth' });
-    });
+    // Hero CTA → open signup popup
+    document.getElementById('hero-cta').addEventListener('click', openPopup);
 
-    // Email submit → 팝업
-    document.getElementById('email-btn').addEventListener('click', () => {
-      const input = document.getElementById('email-input');
-      const val = input.value.trim();
-      const error = document.getElementById('email-error');
+    // 스타터 키트 버튼 → open signup popup
+    document.getElementById('open-signup-popup').addEventListener('click', openPopup);
 
-      if (!val || !val.includes('@')) {
-        input.style.borderColor = '#ec4899';
-        error.style.display = 'block';
-        input.focus();
-        return;
-      }
-
-      // 유효한 이메일 — 오류 초기화 후 팝업
-      input.style.borderColor = '';
-      error.style.display = 'none';
+    function openPopup() {
+      // 초기화
+      document.getElementById('signup-form-wrap').style.display = '';
+      document.getElementById('signup-done-wrap').style.display = 'none';
+      document.getElementById('signup-name').value = '';
+      document.getElementById('signup-email').value = '';
+      document.getElementById('signup-error').textContent = '';
+      document.getElementById('signup-name').classList.remove('error');
+      document.getElementById('signup-email').classList.remove('error');
       document.getElementById('popup-overlay').classList.add('active');
-    });
+    }
 
-    // 입력 중 오류 메시지 숨기기
-    document.getElementById('email-input').addEventListener('input', () => {
-      document.getElementById('email-input').style.borderColor = '';
-      document.getElementById('email-error').style.display = 'none';
-    });
+    // 신청하기 버튼
+    document.getElementById('popup-submit').addEventListener('click', () => {
+      const name  = document.getElementById('signup-name');
+      const email = document.getElementById('signup-email');
+      const err   = document.getElementById('signup-error');
+      let valid = true;
 
-    // 팝업 닫기
-    document.getElementById('popup-close').addEventListener('click', () => {
-      document.getElementById('popup-overlay').classList.remove('active');
-      document.getElementById('email-form').style.display = 'none';
-      const success = document.getElementById('email-success');
-      success.style.display = 'inline-block';
-    });
+      name.classList.remove('error');
+      email.classList.remove('error');
+      err.textContent = '';
 
-    // 오버레이 배경 클릭으로 닫기
-    document.getElementById('popup-overlay').addEventListener('click', (e) => {
-      if (e.target === e.currentTarget) {
-        document.getElementById('popup-overlay').classList.remove('active');
-        document.getElementById('email-form').style.display = 'none';
-        document.getElementById('email-success').style.display = 'inline-block';
+      if (!name.value.trim()) {
+        name.classList.add('error');
+        err.textContent = '이름을 입력해 주세요.';
+        name.focus();
+        valid = false;
+      } else if (!email.value.trim() || !email.value.includes('@')) {
+        email.classList.add('error');
+        err.textContent = '올바른 이메일 주소를 입력해 주세요.';
+        email.focus();
+        valid = false;
       }
+
+      if (!valid) return;
+
+      // 완료 단계로 전환
+      document.getElementById('signup-form-wrap').style.display = 'none';
+      document.getElementById('signup-done-wrap').style.display = '';
     });
+
+    // 완료 확인 버튼
+    document.getElementById('popup-close').addEventListener('click', closePopup);
+
+    // X 버튼
+    document.getElementById('popup-x').addEventListener('click', closePopup);
+
+    // 오버레이 배경 클릭
+    document.getElementById('popup-overlay').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) closePopup();
+    });
+
+    function closePopup() {
+      document.getElementById('popup-overlay').classList.remove('active');
+    }
   </script>
 </body>
 </html>
