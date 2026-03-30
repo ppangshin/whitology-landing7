@@ -54,12 +54,48 @@
     .avatars img:first-child { margin-left: 0; }
     .hero-social p { font-weight: 700; color: var(--slate-500); }
     .hero-image { flex: 1; position: relative; max-width: 480px; }
-    .hero-image-frame { border-radius: 24px; overflow: hidden; border: 8px solid var(--black); box-shadow: 20px 20px 0 var(--pink); position: relative; max-height: 55vh; }
-    .hero-image-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
-    .hero-image-badge { position: absolute; top: 16px; left: 16px; background: var(--black); color: var(--white); padding: 8px 16px; font-family: 'Oswald', sans-serif; font-size: 18px; font-style: italic; text-transform: uppercase; }
+    .hero-image-frame {
+      border-radius: 24px;
+      overflow: hidden;
+      border: 8px solid var(--black);
+      box-shadow: 20px 20px 0 var(--pink);
+      position: relative;
+      aspect-ratio: 3/4;
+    }
+    .hero-image-frame img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 65%;
+    }
+    .hero-image-badge {
+      position: absolute;
+      top: 16px; left: 16px;
+      background: var(--black);
+      color: var(--white);
+      padding: 8px 16px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 18px;
+      font-style: italic;
+      text-transform: uppercase;
+    }
+    .hero-image-sticker {
+      position: absolute;
+      bottom: -16px; right: -16px;
+      background: var(--pink);
+      color: var(--white);
+      font-family: 'Oswald', sans-serif;
+      font-size: 18px;
+      font-style: italic;
+      padding: 10px 20px;
+      border: 3px solid var(--black);
+      border-radius: 6px;
+      box-shadow: 5px 5px 0 var(--black);
+      transform: rotate(4deg);
+      z-index: 2;
+    }
 
     /* ② 착색 원인 */
-    .stain-section { background: var(--white); padding: 96px 24px; border-top: 8px solid var(--black); }
+    .stain-section { background: #fdf6ec; padding: 96px 24px; border-top: 8px solid var(--black); }
     .stain-inner { max-width: 1100px; margin: 0 auto; }
     .stain-label { display: inline-block; background: var(--black); color: var(--yellow); font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; padding: 5px 14px; margin-bottom: 24px; font-style: italic; }
     .stain-heading { font-family: 'Oswald', sans-serif; font-size: clamp(36px, 6vw, 68px); line-height: 1.05; text-transform: uppercase; font-style: italic; letter-spacing: -0.02em; margin-bottom: 16px; }
@@ -74,7 +110,7 @@
     .before-tag { color: var(--yellow); border-color: var(--yellow); }
     .after-tag { color: var(--white); background: var(--indigo); border-color: var(--indigo); }
     .stain-culprits { display: flex; flex-direction: column; gap: 14px; }
-    .culprit-card { display: flex; align-items: center; gap: 20px; background: var(--slate-50); border: 3px solid var(--black); border-radius: 16px; padding: 18px 22px; box-shadow: 5px 5px 0 var(--black); transition: transform 0.2s, box-shadow 0.2s; }
+    .culprit-card { display: flex; align-items: center; gap: 20px; background: var(--white); border: 3px solid var(--black); border-radius: 16px; padding: 18px 22px; box-shadow: 5px 5px 0 var(--black); transition: transform 0.2s, box-shadow 0.2s; }
     .culprit-card:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 var(--black); }
     .culprit-icon { font-size: 28px; flex-shrink: 0; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; background: var(--yellow); border-radius: 12px; border: 3px solid var(--black); }
     .culprit-text strong { display: block; font-family: 'Oswald', sans-serif; font-size: 19px; font-style: italic; }
@@ -249,9 +285,10 @@
       .hero-social p { font-size: 13px; }
       .avatars img { width: 32px; height: 32px; }
       .hero-image { max-width: 100%; width: 100%; }
-      .hero-image-frame { max-height: none; box-shadow: 6px 6px 0 var(--pink); border-width: 4px; border-radius: 16px; }
-      .hero-image-frame img { object-position: center 50%; }
+      .hero-image-frame { box-shadow: 6px 6px 0 var(--pink); border-width: 4px; border-radius: 16px; aspect-ratio: 3/4; }
+      .hero-image-frame img { object-position: center 65%; }
       .hero-image-badge { font-size: 13px; padding: 5px 10px; }
+      .hero-image-sticker { font-size: 15px; padding: 8px 16px; bottom: -12px; right: -10px; }
 
       /* 착색 섹션 */
       .stain-section { padding: 44px 20px; }
@@ -366,7 +403,6 @@
         Whitology로 변화를 경험하세요.
       </p>
       <button class="btn-primary" id="hero-cta">나 관심 있음 →</button>
-      <div class="hero-sticker">진짜임</div>
       <div class="hero-social">
         <div class="avatars">
           <img src="https://picsum.photos/seed/11/100/100" alt="user" referrerpolicy="no-referrer">
@@ -383,6 +419,7 @@
         <img src="images/before3.png" alt="Whitology Before After">
         <div class="hero-image-badge">REAL BEFORE &amp; AFTER</div>
       </div>
+      <div class="hero-image-sticker">진짜임</div>
     </div>
   </section>
 
@@ -390,7 +427,7 @@
   <section class="stain-section">
     <div class="stain-inner">
       <div class="stain-label reveal">착색, 이렇게 생깁니다</div>
-      <h2 class="stain-heading reveal">매일 마시는 커피,<br><span class="em-yellow">치아를 물들이고</span> 있었다고요?</h2>
+      <h2 class="stain-heading reveal">매일 마시는 커피,<br><span class="em-yellow">치아를 착색 시키고</span> 있었다고요?</h2>
       <p class="stain-desc reveal">
         미백 치약 열심히 쓰고 있는데 왜 안 하얘질까요?<br>
         커피·카레·레드와인의 색소는 법랑질 깊숙이 침투해요.<br>
